@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>电力</title>
+  <style link="../css/normalize.css"></style>
+  <style>
+    html, body {
+      background-color: #000;
+    }
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes zoom {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.5);
+      }
+    }
+
+    .elec-wrapper {
+      display: flex;
+    }
+    .left {
+      padding: 20px;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      margin-right: 12px;
+      background: url('../img/circle.png') no-repeat center center;
+      background-size: 100% 100%;
+      animation: rotate 10s linear infinite;
+      transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+    }
+    .zoom {
+      animation: zoom 0.3s forwards ease-in-out ;
+    }
+    .list {
+      width: 240px;
+      border: 1px solid #c7e4ff51;
+      font-size: 14px;
+      color: #78c9e4
+    }
+    .list-item {
+      display: flex;
+      padding: 4px;
+      line-height: 22px;
+    }
+    .list-item:nth-child(2n+1) {
+      background-color: #78c9e442;
+    }
+    .list-item>div:last-child {
+      flex: 1;
+      text-align: right;
+    }
+    .normal-hide {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="elec-wrapper" onclick="zoomIn()">
+    <div class="left">
+      
+    </div>
+    <div class="content">
+      <div class="list">
+        <div class="list-item">
+          <div>名称</div>
+          <div>医院1号变电所</div>
+        </div>
+        <div class="list-item">
+          <div>电压</div>
+          <div>10kv</div>
+        </div>
+        <div class="list-item">
+          <div>电流</div>
+          <div>300A</div>
+        </div>
+        <div class="list-item">
+          <div>实时能耗</div>
+          <div>1420Kw</div>
+        </div>
+        <div class="normal-hide">
+          <div class="list-item">
+            <div>功率因素</div>
+            <div>医院1号变电所</div>
+          </div>
+          <div class="list-item">
+            <div>配电间文档</div>
+            <div>10kv</div>
+          </div>
+          <div class="list-item">
+            <div>室内温度</div>
+            <div>300A</div>
+          </div>
+          <div class="list-item">
+            <div>室外温度</div>
+            <div>1420Kw</div>
+          </div>
+          <div class="list-item">
+            <div>运营巡检</div>
+            <div>1420Kw</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var isZoom = false
+    function zoomIn() {
+      var element = document.querySelector('.left');
+      var hideElement = document.querySelector('.normal-hide')
+      console.log(hideElement)
+      if(isZoom) {
+        element.style.width = '80px'
+        element.style.height = '80px'
+        hideElement.style.display = 'none'
+        isZoom = false
+      } else {
+        element.style.width = '160px'
+        element.style.height = '160px'
+        hideElement.style.display = 'block'
+        isZoom = true
+      }
+    }
+  </script>
+</body>
+</html>
