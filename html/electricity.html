@@ -8,7 +8,8 @@
   <style link="../css/normalize.css"></style>
   <style>
     html, body {
-      background-color: #000;
+      background: transparent;
+      /* background-color: #000; */
     }
     @keyframes rotate {
       from {
@@ -31,7 +32,7 @@
     .elec-wrapper {
       display: flex;
     }
-    .left {
+    .elec-wrapper .left {
       padding: 20px;
       border-radius: 50%;
       width: 80px;
@@ -42,31 +43,33 @@
       animation: rotate 10s linear infinite;
       transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
     }
-    .zoom {
+    .elec-wrapper .zoom {
       animation: zoom 0.3s forwards ease-in-out ;
     }
-    .list {
+    .elec-wrapper .list {
       width: 240px;
       border: 1px solid #c7e4ff51;
       font-size: 14px;
       color: #78c9e4
     }
-    .list-item {
+    .elec-wrapper .list-item {
       display: flex;
       padding: 4px;
       line-height: 22px;
     }
-    .list-item:nth-child(2n+1) {
+    .elec-wrapper .list-item:nth-child(2n+1) {
       background-color: #78c9e442;
     }
-    .list-item>div:last-child {
+    .elec-wrapper .list-item>div:last-child {
       flex: 1;
       text-align: right;
     }
-    .normal-hide {
+    .elec-wrapper .normal-hide {
       display: none;
     }
   </style>
+  <!-- 引入获取页面交互 -->
+  <script src="../js/event.js"></script>
 </head>
 <body>
 
